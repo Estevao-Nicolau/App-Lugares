@@ -1,16 +1,13 @@
-# greatplaces
+ ### O projeto é de um app que tira foto dos lugares e registra o local com a ajuda do Google Maps.
 
-A new Flutter project.
+- Estrutura Inicial do Projeo [X]
+- Gerenciamento de Estado [ Provider ]
+- Banco de Dados [ SQLite ] 
+- Arquitetura do Projeto [ ] 
+- Instalar Google Maps para Flutter [ ] 
+- Usar Recursos Nativos do IOS e Android [ ] 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4>
