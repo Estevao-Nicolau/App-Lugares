@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greatplaces/components/image_input.dart';
 
 class PlaceFormPage extends StatefulWidget {
   const PlaceFormPage({Key? key}) : super(key: key);
@@ -8,14 +9,56 @@ class PlaceFormPage extends StatefulWidget {
 }
 
 class _PlaceFormPageState extends State<PlaceFormPage> {
+  final _titleController = TextEditingController();
+
+  void _submitForm() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Novo Lugar'),
       ),
-      body: Center(
-        child: Text('Form!!!'),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: _titleController,
+                      decoration: const InputDecoration(
+                        labelText: 'Titulo',
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    ImageInput()
+                  ],
+                ),
+              ),
+            ),
+          ),
+          ElevatedButton.icon(
+            icon: Icon(
+              Icons.add,
+              color: Colors.green,
+              size: 30.0,
+            ),
+            label: Text("Adicionar"),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              primary: Color.fromARGB(255, 92, 51, 37),
+              textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            onPressed: _submitForm,
+          ),
+        ],
       ),
     );
   }
