@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       home: PlacesListPage(),
       routes: {
-        AppRoutes.PLACE_FORM: ((context) => PlaceForm())
+        AppRoutes.PLACE_FORM: ((context) => PlaceFormPage())
       },
     );
   }
