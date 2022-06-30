@@ -6,9 +6,9 @@ class PlaceLocation {
   final String address;
 
   PlaceLocation({
-    required this.latitude,
-    required this.longitude,
-    required this.address,
+    @override required this.latitude,
+    @override required this.longitude,
+    @override required this.address,
   });
 }
 
@@ -16,13 +16,13 @@ class Place {
   final String id;
   final String title;
   final PlaceLocation locatiom;
-  final File image;
+  final File? image;
   
   Place({
-    required this.id,
-    required this.title,
-    required this.locatiom,
-    required this.image,
+    @override required this.id,
+    @override required this.title,
+    @override required this.locatiom,
+    @override required this.image,
   });
   
 }
