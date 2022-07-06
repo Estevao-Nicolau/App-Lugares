@@ -25,7 +25,10 @@ class _PlaceFormPageState extends State<PlaceFormPage> {
       return;
     }
 
-    Provider.of<GreatPlaces>(context, listen: false).addPalce(_titleController.text, _pikedImage!);
+    Provider.of<GreatPlaces>(context, listen: false).addPlace(
+      _titleController.text,
+      _pikedImage!,
+    );
 
     Navigator.of(context).pop();
   }

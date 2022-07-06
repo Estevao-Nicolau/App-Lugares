@@ -25,9 +25,10 @@ class _ImageInputState extends State<ImageInput> {
       maxWidth: 600,
     ) as XFile;
 
-    setState(() {
-      _storedImage = File(imageFile.path);
-    });
+    
+      setState(() {
+        _storedImage = File(imageFile.path);
+      });
 
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     String fileName = path.basename(_storedImage!.path);
@@ -58,9 +59,9 @@ class _ImageInputState extends State<ImageInput> {
                 )
               : Text('Nenhuma imagem!'),
         ),
-        const SizedBox(width: 10),
+         SizedBox(width: 10),
         IconButton(
-          icon: const Icon(Icons.camera_enhance,
+          icon:  Icon(Icons.camera_enhance,
               color: Color.fromARGB(255, 207, 83, 37)),
           onPressed: _takePicture,
         ),

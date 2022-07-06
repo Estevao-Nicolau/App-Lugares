@@ -15,18 +15,18 @@ class GreatPlaces with ChangeNotifier {
     return _items.length;
   }
 
-  Place getItem(int index) {
+  Place itemByIndex(int index) {
     return _items[index];
   }
 
-  void addPalce(String title, File image) {
-    final newPalce = Place(
+  void addPlace(String title, File image) {
+    final newPlace = Place(
       id: Random().nextDouble().toString(),
       title: title,
       image: image,
       location: null,
     );
-    _items.add(newPalce);
+    _items.add(newPlace);
     notifyListeners();
   }
 }
