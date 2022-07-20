@@ -15,13 +15,13 @@ class PlaceLocation {
 class Place {
   final String id;
   final String title;
-  final PlaceLocation locatiom;
-  final File? image;
+  final PlaceLocation? location;
+  final File image;
   
   Place({
     @override required this.id,
     @override required this.title,
-    @override required this.locatiom,
+    @override required this.location,
     @override required this.image,
   });
   

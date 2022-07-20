@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart' as syspaths;
 
 class ImageInput extends StatefulWidget {
-  
   final Function onSelectImage;
 
   ImageInput(this.onSelectImage);
@@ -24,11 +25,17 @@ class _ImageInputState extends State<ImageInput> {
       maxWidth: 600,
     ) as XFile;
 
-    setState(() {
-      _storedImage = File(imageFile.path);
-    });
+    
+      setState(() {
+        _storedImage = File(imageFile.path);
+      });
 
-    // widget.onSelectImage(...);
+    final appDir = await syspaths.getApplicationDocumentsDirectory();
+    String fileName = path.basename(_storedImage!.path);
+    final savedImage = await _storedImage!.copy(
+      '${appDir.path}/$fileName',
+    );
+    widget.onSelectImage(savedImage);
   }
 
   @override
@@ -52,9 +59,9 @@ class _ImageInputState extends State<ImageInput> {
                 )
               : Text('Nenhuma imagem!'),
         ),
-        const SizedBox(width: 10),
+         SizedBox(width: 10),
         IconButton(
-          icon: const Icon(Icons.camera_enhance,
+          icon:  Icon(Icons.camera_enhance,
               color: Color.fromARGB(255, 207, 83, 37)),
           onPressed: _takePicture,
         ),

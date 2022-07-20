@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:greatplaces/provider/grate_places.dart';
 import 'package:greatplaces/routes/app_routes.dart';
+import 'package:provider/provider.dart';
 
 class PlacesListPage extends StatelessWidget {
-  const PlacesListPage({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Meus Lugares'),
-        actions: <Widget>[
+        actions: [
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
@@ -18,9 +20,23 @@ class PlacesListPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
+      body: Consumer<GreatPlaces>(
+          child: Center(
+            child: Text('Nenhum local cadastrado!'),
+          ),
+          builder: (context, greatPlaces, ch) => greatPlaces.itemsCount == 0
+              ? ch!
+              : ListView.builder(
+                  itemCount: greatPlaces.itemsCount,
+                  itemBuilder: (ctx, i) => ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage:
+                          FileImage(greatPlaces.itemByIndex(i).image),
+                    ),
+                    title: Text(greatPlaces.itemByIndex(i).title),
+                    onTap: () {},
+                  ),
+                )),
     );
   }
 }
